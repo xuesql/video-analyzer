@@ -1,3 +1,3 @@
-from .ai_summarizer import AISummarizer
+from .douban_summarizer import DoubanSummarizer
 
-__all__ = ['AISummarizer']
+__all__ = ['DoubanSummarizer']
