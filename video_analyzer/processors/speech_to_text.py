@@ -3,7 +3,10 @@ import torch
 
 class SpeechToText:
     def __init__(self, model_size='base'):
-        self.model = whisper.load_model(model_size)
+        # Check if CUDA is available
+        device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        self.model = whisper.load_model(model_size).to(device)
+        self.device = device
         
     def transcribe(self, audio_path):
         """将音频转换为文本"""
