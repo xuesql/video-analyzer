@@ -58,10 +58,10 @@ class VideoAnalyzer:
             if os.path.exists(audio_path):
                 os.remove(audio_path)
 
-# 使用示例:
 if __name__ == '__main__':
     analyzer = VideoAnalyzer()
-    video_path = 'path/to/your/video.mp4'
+    # 替换为你的视频文件路径
+    video_path = 'test.mp4'
     
     try:
         result = analyzer.analyze_video(video_path)
