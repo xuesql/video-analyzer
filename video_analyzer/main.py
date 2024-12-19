@@ -1,18 +1,18 @@
 import os
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from .config import OPENAI_API_KEY, MODEL_NAME, CHUNK_SIZE
+from .config import DOUBAN_API_KEY, DOUBAN_MODEL, CHUNK_SIZE
 from .extractors.video_extractor import VideoExtractor
 from .processors.speech_to_text import SpeechToText
 from .processors.text_processor import TextProcessor
-from .summarizer.ai_summarizer import AISummarizer
+from .summarizer.douban_summarizer import DoubanSummarizer
 
 class VideoAnalyzer:
     def __init__(self):
         self.video_extractor = None
         self.speech_to_text = SpeechToText()
         self.text_processor = TextProcessor(chunk_size=CHUNK_SIZE)
-        self.summarizer = AISummarizer(OPENAI_API_KEY, MODEL_NAME)
+        self.summarizer = DoubanSummarizer(DOUBAN_API_KEY, DOUBAN_MODEL)
         
     def analyze_video(self, video_path: str) -> dict:
         """分析视频并返回总结结果"""

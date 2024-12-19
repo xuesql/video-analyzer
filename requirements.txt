@@ -1,6 +1,6 @@
 opencv-python
 moviepy
-openai
+requests
 whisper
 torch
 python-dotenv
