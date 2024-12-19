@@ -1,52 +1,62 @@
 # Video Analyzer
 
-这是一个视频分析工具，可以处理视频的音频和图像内容，并生成分析报告。
+A Python-based tool for analyzing and summarizing video content using AI.
 
-## 主要功能
+## Features
 
-1. 音频处理
-   - 提取视频中的音频
-   - 将音频转换为文本
-   - 分析音频内容
+- Local video file processing
+- Audio extraction
+- Speech-to-text conversion
+- AI-powered content summarization
+- Modular design
 
-2. 图像处理
-   - 提取视频关键帧
-   - 使用AI模型分析关键帧内容
-   - 生成图像分析报告
+## Installation
 
-3. 报告生成
-   - 生成美观的Markdown格式报告
-   - 包含音频分析结果
-   - 包含关键帧分析结果
-   - 自动生成内容总结
-
-## 依赖安装
-
-```bash
-pip install -r requirements.txt
-```
-
-## 使用方法
-
-1. 克隆仓库
+1. Clone the repository:
 ```bash
 git clone https://github.com/xuesql/video-analyzer.git
 cd video-analyzer
 ```
 
-2. 安装依赖
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-3. 运行分析器
+3. Create `.env` file and set your OpenAI API key:
 ```bash
-python video_analyzer.py
+cp .env.example .env
+# Edit .env and add your OpenAI API key
 ```
 
-## 输出示例
+## Usage
 
-程序会生成一个markdown格式的报告，包含：
-- 视频的音频内容转录
-- 关键帧截图和分析结果
-- 总体内容摘要
+```python
+from video_analyzer import VideoAnalyzer
+
+analyzer = VideoAnalyzer()
+result = analyzer.analyze_video('path/to/your/video.mp4')
+
+print('Video Info:', result['video_info'])
+print('Summary:', result['summary'])
+```
+
+## Project Structure
+
+```
+video_analyzer/
+├── __init__.py
+├── config.py
+├── extractors/
+│   ├── __init__.py
+│   ├── video_extractor.py
+│   └── audio_extractor.py
+├── processors/
+│   ├── __init__.py
+│   ├── text_processor.py
+│   └── speech_to_text.py
+├── summarizer/
+│   ├── __init__.py
+│   └── ai_summarizer.py
+└── main.py
+```
